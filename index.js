@@ -7,6 +7,7 @@
  * @property {number} quantity - number of this item in inventory
  */
 
+
 /**
  * @type {Item[]}
  * You can use this example array to test your functions.
@@ -21,22 +22,26 @@ const INVENTORY = [
   { id: 6, name: "cheddar", price: 4.0, category: "dairy", quantity: 63 },
   { id: 101, name: "sourdough", price: 5.5, category: "grains", quantity: 81 },
 ];
-
+const ids = INVENTORY.map((item) => item.id);
 /**
  * @param {Item[]} items
  * @returns {number[]} ids of given items
  */
 function getIds(items) {
-  // TODO
+  const ids = INVENTORY.map((item) => item.id);
+  return ids;
 }
+// console.log(getIds(INVENTORY));
 
 /**
  * @param {Item[]} items
  * @returns {string[]} categories of given items
  */
 function getCategories(items) {
-  // TODO
+  const categories = INVENTORY.map((item) => item.category);
+  return categories;
 }
+// console.log(getCategories(INVENTORY));
 
 /**
  * Vendors often use SKUs (Stock Keeping Units) to manage their inventory.
@@ -48,8 +53,12 @@ function getCategories(items) {
  * @returns {string[]} SKUs of given items
  */
 function getSkus(items) {
-  // TODO
+  const skus = INVENTORY.map((item) => {
+    return `${item.id}#${item.name}#${item.name.length}`;
+  });
+  return skus;
 }
+// console.log(getSkus(INVENTORY));
 
 /**
  * @param {Item[]} items
