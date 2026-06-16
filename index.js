@@ -86,29 +86,44 @@ function getItemsByCategory(items, category) {
  * @returns {Item[]} all cheap items
  */
 function getCheapItems(items) {
-  // TODO
+  const cheapItems = INVENTORY.filter((item) => item.price <= 2.5);
+  return cheapItems;
 }
+// console.log(getCheapItems(INVENTORY));
 
 /**
  * @param {Item[]} items
  * @returns {number} the total quantity of all items given
  */
 function countItems(items) {
-  // TODO
+  const totalQuantity = INVENTORY.reduce((total, item) => {
+    return total + item.quantity;
+  }, 0);
+  return totalQuantity;
 }
+// console.log(countItems(INVENTORY));
 
 /**
  * @param {Item[]} items
  * @returns {number} the cost of purchasing every single item
  */
 function getTotalCost(items) {
-  // TODO
+  const totalCost = INVENTORY.reduce((total, item) => {
+    return total + (item.price * item.quantity);
+  }, 0);
+  return totalCost;
 }
+// console.log(getTotalCost(INVENTORY));
 
 /**
  * @param {Item[]} items
  * @returns {Item} the item with the highest price
  */
 function getMostExpensiveItem(items) {
-  // TODO
+  const mostExpensiveItem = INVENTORY.reduce((mostExpensive, item) => {
+    if (item.price > mostExpensive.price) {return item;}
+    return mostExpensive;
+  }, INVENTORY[0]);
+  return mostExpensiveItem;
 }
+console.log(getMostExpensiveItem(INVENTORY));
