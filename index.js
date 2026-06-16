@@ -65,8 +65,10 @@ function getSkus(items) {
  * @returns {Item[]} all items in the "fruit" category
  */
 function getFruits(items) {
-  // TODO
+  const fruits = INVENTORY.filter((item) => item.category === "fruit");
+  return fruits;
 }
+// console.log(getFruits(INVENTORY));
 
 /**
  * @param {Item[]} items
@@ -74,7 +76,8 @@ function getFruits(items) {
  * @returns {Item[]} all items in the given category
  */
 function getItemsByCategory(items, category) {
-  // TODO
+  const itemsByCategory = INVENTORY.filter((item) => item.category === category);
+  return itemsByCategory;
 }
 
 /**
